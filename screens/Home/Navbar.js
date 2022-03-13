@@ -11,28 +11,29 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import Link from "react-scroll/modules/components/Link";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const menus = [
   {
     label: "Home",
-    path: "#home",
+    path: "home",
   },
   {
     label: "Tentang Saya",
-    path: "#about",
+    path: "about",
   },
   {
     label: "Gallery",
-    path: "#project",
+    path: "project",
   },
   {
     label: "Tools",
-    path: "#tools",
+    path: "tools",
   },
   {
-    label: "Sosial Media",
-    path: "#sosial-media",
+    label: "Hubungi Saya",
+    path: "contact-me",
   },
 ];
 
@@ -100,9 +101,9 @@ const Navbar = () => {
             >
               {menus.map((item) => (
                 <MenuItem key={item} onClick={handleCloseNavMenu}>
-                  <a href={item.path}>
+                  <Link to={item.path} smooth={true} duration={1000}>
                     <Typography textAlign="center">{item.label}</Typography>
-                  </a>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -110,6 +111,7 @@ const Navbar = () => {
           <Typography
             variant="h6"
             noWrap
+            color="black"
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
@@ -122,7 +124,9 @@ const Navbar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "black", display: "block" }}
               >
-                {item.label}
+                <Link to={item.path} smooth={true} duration={1000}>
+                  {item.label}
+                </Link>
               </Button>
             ))}
           </Box>
@@ -130,10 +134,10 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar src="/ogik.jpg" />
               </IconButton>
             </Tooltip>
-            <Menu
+            {/* <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
@@ -154,7 +158,7 @@ const Navbar = () => {
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
-            </Menu>
+            </Menu> */}
           </Box>
         </Toolbar>
       </Container>
