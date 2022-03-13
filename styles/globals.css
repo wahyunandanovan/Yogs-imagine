@@ -14,3 +14,23 @@ a {
 * {
   box-sizing: border-box;
 }
+body {
+  margin: 40px;
+}
+
+.donotcross {
+  overflow: hidden;
+  align-items: center;
+  background: hsl(50, 100%, 50%);
+  color: black;
+  height: 2em;
+  line-height: 2em;
+}
+  &:before,
+  &:after {
+    background: white;
+    padding: 50px 0;
+    height: 0;
+    transform: rotate(45deg);
+  }
+}
